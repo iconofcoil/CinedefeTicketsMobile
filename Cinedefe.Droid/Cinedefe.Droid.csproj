@@ -57,12 +57,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adapters\CiudadesListAdapter.cs" />
+    <Compile Include="Adapters\PeliculasSalasListAdapter.cs" />
     <Compile Include="Adapters\SucursalesListAdapter.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="MisBoletosActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeleccionaCiudadActivity.cs" />
+    <Compile Include="SeleccionaPeliculaSalaActivity.cs" />
     <Compile Include="SeleccionaSucursalActivity.cs" />
     <Compile Include="Utility\ImageHelper.cs" />
   </ItemGroup>

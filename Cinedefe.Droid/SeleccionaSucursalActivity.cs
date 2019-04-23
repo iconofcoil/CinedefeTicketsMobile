@@ -41,7 +41,22 @@ namespace Cinedefe.Droid
 
             sucursalesListView.Adapter = new SucursalesListAdapter(this, sucursales);
 
+            sucursalesListView.ItemClick += SucursalesListView_ItemClick;
+
             sucursalesListView.FastScrollEnabled = true;
+        }
+
+        private void SucursalesListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            var sucursal = this.sucursales[e.Position];
+
+            var intent = new Intent();
+            intent.SetClass(this, typeof(SeleccionaPeliculaSalaActivity));
+            intent.PutExtra("selectedCiudadNombre", sucursal.Ciudad);
+            intent.PutExtra("selectedSucursalId", sucursal.Id);
+            intent.PutExtra("selectedSucursalNombre", sucursal.Nombre);
+
+            StartActivity(intent);
         }
     }
 }

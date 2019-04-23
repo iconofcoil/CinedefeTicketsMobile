@@ -10,61 +10,29 @@ namespace Cinedefe.Core
 
 		}
 
-		public int PeliculaId {
+		public int Id {
 			get;
 			set;
 		}
 
-		public string Name {
+		public string Nombre {
 			get;
 			set;
 		}
 
-		public string ShortDescription {
+		public string Anio {
 			get;
 			set;
 		}
 
-		public string Description {
+		public int Duracion {
 			get;
 			set;
 		}
 
-		public string ImagePath {
+		public byte[] Poster {
 			get;
 			set;
 		}
-
-		public int Price {
-			get;
-			set;
-		}
-
-		public bool Available {
-			get;
-			set;
-		}
-
-		public int PrepTime {
-			get;
-			set;
-		}
-
-		public List<string> Ingredients {
-			get;
-			set;
-		}
-
-		public bool IsFavorite {
-			get;
-			set;
-		}
-
-		public string GroupName {
-			get;
-			set;
-		}
-
 	}
 }
-
