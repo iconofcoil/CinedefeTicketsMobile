@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 using Android.App;
 using Android.Content;
@@ -21,7 +22,7 @@ namespace Cinedefe.Droid
     {
         private ListView ciudadesListView;
         private List<Ciudad> ciudades;
-        private CarteleraRepository carteleraRepository;
+        private CarteleraWebRepository carteleraRepository;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -31,9 +32,9 @@ namespace Cinedefe.Droid
 
             ciudadesListView = FindViewById<ListView>(Resource.Id.ciudadesListView);
 
-            carteleraRepository = new CarteleraRepository();
+            carteleraRepository = new CarteleraWebRepository();
 
-            ciudades = carteleraRepository.GetAllCiudades();
+            ciudades = carteleraRepository.Ciudades;
 
             ciudadesListView.Adapter = new CiudadesListAdapter(this, ciudades);
 
