@@ -22,7 +22,7 @@ namespace Cinedefe.Droid
         private ListView sucursalesListView;
         private TextView ciudadTitleTextView;
         private List<Sucursal> sucursales;
-        private CarteleraRepository carteleraRepository;
+        private CarteleraWebRepository carteleraRepository;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -33,11 +33,11 @@ namespace Cinedefe.Droid
             sucursalesListView = FindViewById<ListView>(Resource.Id.sucursalesListView);
             ciudadTitleTextView = FindViewById<TextView>(Resource.Id.ciudadTitleTextView);
 
-            carteleraRepository = new CarteleraRepository();
+            carteleraRepository = new CarteleraWebRepository();
 
             var ciudadNombre = Intent.Extras.GetString("selectedCiudadNombre");
             ciudadTitleTextView.Text = ciudadNombre;
-            sucursales = carteleraRepository.GetSucursalesByCiudadNombre(ciudadNombre);
+            sucursales = carteleraRepository.GetSucursalesByCiudad(ciudadNombre);
 
             sucursalesListView.Adapter = new SucursalesListAdapter(this, sucursales);
 
@@ -51,7 +51,7 @@ namespace Cinedefe.Droid
             var sucursal = this.sucursales[e.Position];
 
             var intent = new Intent();
-            intent.SetClass(this, typeof(SeleccionaPeliculaSalaActivity));
+            intent.SetClass(this, typeof(SeleccionaFuncionActivity));
             intent.PutExtra("selectedCiudadNombre", sucursal.Ciudad);
             intent.PutExtra("selectedSucursalId", sucursal.Id);
             intent.PutExtra("selectedSucursalNombre", sucursal.Nombre);

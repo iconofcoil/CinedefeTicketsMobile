@@ -34,7 +34,7 @@ namespace Cinedefe.Droid
 
             carteleraRepository = new CarteleraWebRepository();
 
-            ciudades = carteleraRepository.Ciudades;
+            ciudades = carteleraRepository.GetCiudades();
 
             ciudadesListView.Adapter = new CiudadesListAdapter(this, ciudades);
 

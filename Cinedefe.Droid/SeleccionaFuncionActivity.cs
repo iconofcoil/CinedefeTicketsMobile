@@ -16,14 +16,14 @@ using Cinedefe.Droid.Adapters;
 
 namespace Cinedefe.Droid
 {
-    [Activity(Label = "SeleccionaPeliculaSalaActivity")]
-    public class SeleccionaPeliculaSalaActivity : Activity
+    [Activity(Label = "SeleccionaFuncionActivity")]
+    public class SeleccionaFuncionActivity : Activity
     {
         private ListView peliculasListView;
         private TextView ciudadTitleTextView;
         private TextView sucursalTitleTextView;
         private List<SucursalPeliculas> sucursalPeliculas;
-        private CarteleraRepository carteleraRepository;
+        private CarteleraWebRepository carteleraRepository;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -35,7 +35,7 @@ namespace Cinedefe.Droid
             ciudadTitleTextView = FindViewById<TextView>(Resource.Id.ciudadTitleTextView);
             sucursalTitleTextView = FindViewById<TextView>(Resource.Id.sucursalTitleTextView);
 
-            carteleraRepository = new CarteleraRepository();
+            carteleraRepository = new CarteleraWebRepository();
 
             var ciudadNombre = Intent.Extras.GetString("selectedCiudadNombre");
             var sucursalId = Intent.Extras.GetInt("selectedSucursalId");

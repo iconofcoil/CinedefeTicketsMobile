@@ -64,7 +64,7 @@
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeleccionaCiudadActivity.cs" />
-    <Compile Include="SeleccionaPeliculaSalaActivity.cs" />
+    <Compile Include="SeleccionaFuncionActivity.cs" />
     <Compile Include="SeleccionaSucursalActivity.cs" />
     <Compile Include="Utility\ImageHelper.cs" />
   </ItemGroup>
@@ -118,7 +118,7 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\PeliculasListView.axml">
+    <AndroidResource Include="Resources\layout\FuncionesListView.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
