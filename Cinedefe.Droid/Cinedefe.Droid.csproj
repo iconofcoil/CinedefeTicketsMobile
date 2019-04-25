@@ -57,14 +57,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adapters\CiudadesListAdapter.cs" />
-    <Compile Include="Adapters\PeliculasSalasListAdapter.cs" />
+    <Compile Include="Adapters\FuncionesListAdapter.cs" />
+    <Compile Include="Adapters\FuncionHorariosFechasListAdapter.cs" />
     <Compile Include="Adapters\SucursalesListAdapter.cs" />
+    <Compile Include="ConfirmaCompraActivity.cs" />
+    <Compile Include="SeleccionaAsientosActivity.cs" />
+    <Compile Include="SeleccionaBoletosActivity.cs" />
+    <Compile Include="SeleccionaFechaActivity.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="MisBoletosActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeleccionaCiudadActivity.cs" />
     <Compile Include="SeleccionaFuncionActivity.cs" />
+    <Compile Include="SeleccionaHorarioActivity.cs" />
     <Compile Include="SeleccionaSucursalActivity.cs" />
     <Compile Include="Utility\ImageHelper.cs" />
   </ItemGroup>
@@ -128,17 +134,12 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\HorariosSalaListView.axml">
+    <AndroidResource Include="Resources\layout\HorariosListView.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\AsientosView.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\layout\CompraBoletosView.axml">
+    <AndroidResource Include="Resources\layout\BoletosView.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -152,6 +153,21 @@
       <Project>{59731458-e859-40a7-942c-8749f0238917}</Project>
       <Name>Cinedefe.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\FuncionRowView.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\FechasListView.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\AsientosSalaView.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

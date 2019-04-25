@@ -19,33 +19,57 @@ namespace Cinedefe.Droid
     [Activity(Label = "SeleccionaFuncionActivity")]
     public class SeleccionaFuncionActivity : Activity
     {
-        private ListView peliculasListView;
+        private ListView funcionesListView;
         private TextView ciudadTitleTextView;
         private TextView sucursalTitleTextView;
-        private List<SucursalPeliculas> sucursalPeliculas;
+        private List<FuncionDisponible> funciones;
+
+        string ciudadNombre;
+        string sucursalNombre;
+
         private CarteleraWebRepository carteleraRepository;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
-            SetContentView(Resource.Layout.PeliculasListView);
+            SetContentView(Resource.Layout.FuncionesListView);
 
-            peliculasListView = FindViewById<ListView>(Resource.Id.peliculasListView);
+            funcionesListView = FindViewById<ListView>(Resource.Id.funcionesListView);
             ciudadTitleTextView = FindViewById<TextView>(Resource.Id.ciudadTitleTextView);
             sucursalTitleTextView = FindViewById<TextView>(Resource.Id.sucursalTitleTextView);
 
             carteleraRepository = new CarteleraWebRepository();
 
-            var ciudadNombre = Intent.Extras.GetString("selectedCiudadNombre");
+            ciudadNombre = Intent.Extras.GetString("selectedCiudadNombre");
+            sucursalNombre = Intent.Extras.GetString("selectedSucursalNombre");
             var sucursalId = Intent.Extras.GetInt("selectedSucursalId");
 
             ciudadTitleTextView.Text = ciudadNombre;
-            sucursalPeliculas = carteleraRepository.GetPeliculasSalasBySucursalId(sucursalId);
+            sucursalTitleTextView.Text = sucursalNombre;
 
-            peliculasListView.Adapter = new PeliculasSalasListAdapter(this, sucursalPeliculas);
+            funciones = carteleraRepository.GetFuncionesBySucursalId(sucursalId);
 
-            peliculasListView.FastScrollEnabled = true;
+            funcionesListView.Adapter = new FuncionesListAdapter(this, funciones);
+
+            funcionesListView.ItemClick += FuncionesListView_ItemClick;
+
+            funcionesListView.FastScrollEnabled = true;
+        }
+
+        private void FuncionesListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            var funcion = this.funciones[e.Position];
+
+            var intent = new Intent();
+            intent.SetClass(this, typeof(SeleccionaFechaActivity));
+            intent.PutExtra("ciudadNombre", ciudadNombre);
+            intent.PutExtra("sucursalNombre", sucursalNombre);
+            intent.PutExtra("selectedFuncionId", funcion.FuncionId);
+            intent.PutExtra("selectedFuncionPeliculaTitulo", funcion.PeliculaTitulo);
+            intent.PutExtra("selectedFuncionSalaNombre", funcion.SalaNombre + " " +funcion.SalaTipo);
+
+            StartActivity(intent);
         }
     }
 }

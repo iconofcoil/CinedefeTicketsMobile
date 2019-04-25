@@ -14,15 +14,17 @@ using Cinedefe.Core.Model;
 
 namespace Cinedefe.Droid.Adapters
 {
-    public class PeliculasSalasListAdapter : BaseAdapter<SucursalPeliculas>
+    public class FuncionHorariosFechasListAdapter : BaseAdapter<FuncionHorario>
     {
-        List<SucursalPeliculas> items;
+        List<FuncionHorario> items;
         Activity context;
+        bool horarios;
 
-        public PeliculasSalasListAdapter(Activity context, List<SucursalPeliculas> items) : base()
+        public FuncionHorariosFechasListAdapter(Activity context, List<FuncionHorario> items, bool isHorarios = false) : base()
         {
             this.context = context;
             this.items = items;
+            this.horarios = isHorarios;
         }
 
         public override long GetItemId(int position)
@@ -30,7 +32,7 @@ namespace Cinedefe.Droid.Adapters
             return position;
         }
 
-        public override SucursalPeliculas this[int position]
+        public override FuncionHorario this[int position]
         {
             get
             {
@@ -55,8 +57,9 @@ namespace Cinedefe.Droid.Adapters
                 convertView = context.LayoutInflater.Inflate(Android.Resource.Layout.SimpleListItem1, null);
             }
 
-            string peliculaSalaText = item.PeliculaTitulo + " " + item.PeliculaDuracion + " - Sala " + item.SalaNombre;
-            convertView.FindViewById<TextView>(Android.Resource.Id.Text1).Text = peliculaSalaText;
+            convertView.FindViewById<TextView>(Android.Resource.Id.Text1).Text = this.horarios ?
+                                                                                 item.Horario.ToString("HH:mm") :
+                                                                                 item.Horario.Date.ToString("dd/MMM/yyyy");
 
             return convertView;
         }

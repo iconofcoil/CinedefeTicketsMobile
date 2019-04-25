@@ -38,6 +38,7 @@
   <ItemGroup>
     <Compile Include="Model\Ciudad.cs" />
     <Compile Include="Model\FuncionDisponible.cs" />
+    <Compile Include="Model\FuncionHorario.cs" />
     <Compile Include="Model\Pelicula.cs" />
     <Compile Include="Model\Sucursal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
