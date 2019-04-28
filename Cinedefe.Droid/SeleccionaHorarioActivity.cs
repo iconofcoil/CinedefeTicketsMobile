@@ -72,7 +72,6 @@ namespace Cinedefe.Droid
             horariosListView.ItemClick += HorariosListView_ItemClick;
 
             horariosListView.FastScrollEnabled = true;
-
         }
 
         private void HorariosListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
@@ -82,10 +81,10 @@ namespace Cinedefe.Droid
             var intent = new Intent();
             intent.SetClass(this, typeof(SeleccionaBoletosActivity));
             intent.PutExtra("selectedFuncionId", funcionHorario.FuncionId);
-            intent.PutExtra("selectedHorario", funcionHorario.Horario.ToString("yyyy-MM-ddTHH:mm"));
             intent.PutExtra("selectedCiudadNombre", ciudadNombre);
             intent.PutExtra("selectedSucursalNombre", sucursalNombre);
             intent.PutExtra("selectedFuncionNombre", funcionNombre);
+            intent.PutExtra("selectedHorario", funcionHorario.Horario.ToString("yyyy-MM-ddTHH:mm"));
 
             StartActivity(intent);
         }

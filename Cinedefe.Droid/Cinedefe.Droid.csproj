@@ -56,11 +56,15 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adapters\AsientosGridAdapter.cs" />
     <Compile Include="Adapters\CiudadesListAdapter.cs" />
     <Compile Include="Adapters\FuncionesListAdapter.cs" />
     <Compile Include="Adapters\FuncionHorariosFechasListAdapter.cs" />
     <Compile Include="Adapters\SucursalesListAdapter.cs" />
+    <Compile Include="CapturaPagoActivity.cs" />
     <Compile Include="ConfirmaCompraActivity.cs" />
+    <Compile Include="DependancyServices\CardService.cs" />
+    <Compile Include="DependancyServices\ICardService.cs" />
     <Compile Include="SeleccionaAsientosActivity.cs" />
     <Compile Include="SeleccionaBoletosActivity.cs" />
     <Compile Include="SeleccionaFechaActivity.cs" />
@@ -106,7 +110,12 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher_round.png" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Android.Support.Design" Version="27.0.2.1" />
+    <PackageReference Include="Xamarin.CardIO.Android">
+      <Version>5.5.1</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Forms">
+      <Version>3.6.0.344457</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\CiudadListView.axml">
